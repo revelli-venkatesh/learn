@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz | Smart Learning Hub</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div class="logo">💡 Smart Learning Hub</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="quiz.html" class="active">Quiz</a>
+      <a href="trivia.html">Jokes & Trivia</a>
+    </nav>
+    <button class="theme-toggle" onclick="toggleTheme()">Toggle Theme</button>
+  </header>
+
+  <main>
+    <div class="quiz-wrapper">
+      <h1>Quiz Time!</h1>
+
+      <!-- Quiz Container -->
+      <div id="quiz-container">
+        <div id="question"></div>
+        <ul id="options"></ul>
+        <button id="next-btn" class="btn primary">Next</button>
+      </div>
+
+      <!-- Score and Suggestion -->
+      <div id="score-container" class="hidden">
+        <h2>Quiz Completed!</h2>
+        <p>Your score: <span id="score"></span> / <span id="total"></span></p>
+        <p id="suggestion"></p>
+        <a href="quiz.html" class="btn secondary">Retry Quiz</a>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Smart Learning Hub</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
