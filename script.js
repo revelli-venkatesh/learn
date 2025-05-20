@@ -29,12 +29,12 @@ const questions = getRandomQuestions(fullQuestionSet);
 let currentQuestion = 0;
 let score = 0;
 
-const questionEl      = document.getElementById("question");
-const optionsEl       = document.getElementById("options");
-const nextBtn         = document.getElementById("next-btn");
-const scoreContainer  = document.getElementById("score-container");
-const scoreEl         = document.getElementById("score");
-const totalEl         = document.getElementById("total");
+const questionEl = document.getElementById("question");
+const optionsEl = document.getElementById("options");
+const nextBtn = document.getElementById("next-btn");
+const scoreContainer = document.getElementById("score-container");
+const scoreEl = document.getElementById("score");
+const totalEl = document.getElementById("total");
 
 if (questionEl) {
   totalEl.innerText = questions.length;
@@ -43,7 +43,7 @@ if (questionEl) {
 
 function loadQuestion() {
   const q = questions[currentQuestion];
-  questionEl.innerText = q.question;
+  questionEl.innerText = `Q${currentQuestion + 1}. ${q.question}`;
   optionsEl.innerHTML = "";
   q.options.forEach(opt => {
     const btn = document.createElement("button");
@@ -78,14 +78,12 @@ nextBtn?.addEventListener("click", () => {
 });
 
 function showScore() {
-  // hide quiz ui
   document.getElementById("quiz-container").style.display = "none";
-  // reveal score
   scoreContainer.classList.remove("hidden");
   scoreEl.innerText = score;
   totalEl.innerText = questions.length;
 
-  // suggestion based on score
+  // Show suggestion
   const suggestion = document.createElement("p");
   suggestion.classList.add("suggestion");
   const percent = (score / questions.length) * 100;
@@ -101,7 +99,7 @@ function showScore() {
   scoreContainer.appendChild(suggestion);
 }
 
-// ===== Trivia API Fetch =====
+// ===== Trivia API Fetch (Family-Friendly) =====
 const fetchBtn = document.getElementById("fetch-btn");
 const triviaText = document.getElementById("trivia-text");
 
@@ -111,13 +109,9 @@ if (fetchBtn && triviaText) {
     spinner.classList.remove("hidden");
     triviaText.innerText = "";
     try {
-      const res = await fetch("https://v2.jokeapi.dev/joke/Any");
+      const res = await fetch("https://v2.jokeapi.dev/joke/Any?type=single&blacklistFlags=nsfw,religious,political,racist,sexist,explicit");
       const data = await res.json();
-      if (data.type === "single") {
-        triviaText.innerText = data.joke;
-      } else if (data.type === "twopart") {
-        triviaText.innerText = `${data.setup} ... ${data.delivery}`;
-      }
+      triviaText.innerText = data.joke || `${data.setup} ... ${data.delivery}`;
     } catch {
       triviaText.innerText = "Failed to load trivia. Try again!";
     } finally {
