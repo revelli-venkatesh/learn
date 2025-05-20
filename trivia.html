@@ -1,1 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jokes & Trivia | Smart Learning Hub</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <div class="logo">💡 Smart Learning Hub</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="quiz.html">Quiz</a>
+      <a href="trivia.html" class="active">Jokes & Trivia</a>
+    </nav>
+    <button class="theme-toggle" onclick="toggleTheme()">Toggle Theme</button>
+  </header>
 
+  <main>
+    <section class="trivia-wrapper">
+      <h1>Jokes & Trivia</h1>
+      <div id="trivia-container">
+        <p id="trivia-text" class="trivia-text">Click the button for a fun fact or joke!</p>
+        <button id="fetch-btn" class="btn primary">Get Random Fact/Joke</button>
+        <div id="spinner" class="spinner hidden"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Smart Learning Hub</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
