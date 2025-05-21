@@ -212,6 +212,12 @@ footer {
   border-color: #16a085;
 }
 
+#options button.wrong{
+  background: #aa1d24;
+  color: #fff;
+  border-color: #16a085;
+}
+
 #next-btn {
   margin-top: 1rem;
 }
