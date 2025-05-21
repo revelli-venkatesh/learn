@@ -110,7 +110,6 @@ if (fetchBtn && triviaText) {
     triviaText.innerText = "";
     try {
       const res = await fetch("https://v2.jokeapi.dev/joke/Programming,Miscellaneous,Pun,Spooky,Christmas?type=single&blacklistFlags=nsfw,religious,political,racist,sexist,explicit");
-");
       const data = await res.json();
       triviaText.innerText = data.joke || `${data.setup} ... ${data.delivery}`;
     } catch {
